@@ -28,7 +28,7 @@ class AppNavbar extends Component {
                     dark expand="sm"
                     className="mb-5" >
                     <Container>
-                        <NavbarBrand href="/" > 3-2-1 NHL Point System </NavbarBrand>
+                        <NavbarBrand href="/" > NHL 321 Point System </NavbarBrand>
 
                         <NavbarToggler onClick={
                             this.toggle
