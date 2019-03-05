@@ -76,5 +76,5 @@ pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-pts_math.to_json('321-Point-Standings.json',orient='table')
+# pts_math.to_json('321-Point-Standings.json',orient='table')
 print("x")
