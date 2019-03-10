@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // DB Config
-const db = require('../NHL_321_Point_System_Ver2/config/keys').mongoURI;
+const db = require('./config/keys').mongoURI;
 
 //Connect to Mongo
 mongoose
@@ -18,7 +18,7 @@ mongoose
   .catch(err => console.log(err));
 
 //Use Routes
-app.use('/api/items',items);
+app.use('/routes/api/items',items);
 
 const port = process.env.PORT || 5000;
 

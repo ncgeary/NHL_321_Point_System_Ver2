@@ -90,15 +90,15 @@ pts_math = pts_math.set_index('Team')
 # pts_math.to_json('../models/321-Point-Standings.json',orient='table')
 
 
-client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
-db = client['2018_Data']
-collection = db['Data']
+# client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
+# db = client['2018_Data']
+# collection = db['Data']
 
 
 
-NHL_Data = pts_math.to_dict(orient='dict')
+# NHL_Data = pts_math.to_dict(orient='dict')
 
-collection.insert_one(NHL_Data)
+# collection.insert_one(NHL_Data)
 
 
 print("x")
