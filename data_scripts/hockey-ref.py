@@ -51,6 +51,7 @@ Overtime_math = teamtable.Overtime.str.split("-",expand=True).drop([1],axis=1).r
 pts_math = teamname.join(Overall_math)
 pts_math = pts_math.join(Shootout_math)
 pts_math = pts_math.join(Overtime_math)
+
 # print(pts_math)
 
 # Math to get all the pts totals...(Keeping to show the work)
@@ -74,6 +75,8 @@ pts_math['Current Rank'] = pts_math['Current Points'].rank(ascending=False)
 
 pts_math['321 Rank'] = pts_math['Points'].rank(ascending=False)
 pts_math = pts_math.sort_values(by=["Points"],ascending=False)
+pts_math = pts_math.set_index('Team')
+# print(pts_math)
 
 # print(pts_math)
 #export .csv file
@@ -83,5 +86,5 @@ pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-# pts_math.to_json('321-Point-Standings.json',orient='table')
+pts_math.to_json('../models/321-Point-Standings.json',orient='table')
 print("x")

@@ -9,7 +9,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // DB Config
-const db = require('../nhl_mern/config/keys').mongoURI;
+const db = require('../NHL_321_Point_System_Ver2/config/keys').mongoURI;
 
 //Connect to Mongo
 mongoose
