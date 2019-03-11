@@ -1,4 +1,4 @@
-# from pymongo import MongoClient
+from pymongo import MongoClient
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from html.parser import HTMLParser
@@ -87,18 +87,17 @@ pts_math = pts_math.set_index('Team')
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-pts_math.to_json('../models/321-Point-Standings.json')
+# pts_math.to_json('../models/321-Point-Standings.json')
 
 
-# client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
-# db = client['2018_Data']
-# collection = db['Data']
+client = pymongo.MongoClient("mongodb+srv://admin:<CatDog123>@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
+db = client.test
 
+collection = db['items']
 
+NHL_Data = pts_math.to_dict(orient='dict')
 
-# NHL_Data = pts_math.to_dict(orient='dict')
-
-# collection.insert_one(NHL_Data)
+collection.insert_one(NHL_Data)
 
 
 print("x")
