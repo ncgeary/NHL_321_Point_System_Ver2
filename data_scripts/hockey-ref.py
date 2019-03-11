@@ -76,6 +76,11 @@ pts_math['Current_Rank'] = pts_math['Current_Points'].rank(ascending=False)
 
 pts_math['New_Rank'] = pts_math['Points'].rank(ascending=False)
 pts_math = pts_math.sort_values(by=["Points"],ascending=False)
+
+
+
+
+
 pts_math = pts_math.set_index('Team')
 # print(pts_math)
 
@@ -90,10 +95,10 @@ pts_math = pts_math.set_index('Team')
 # pts_math.to_json('../models/321-Point-Standings.json')
 
 
-client = pymongo.MongoClient("mongodb+srv://admin:<CatDog123>@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
-db = client.test
+client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
+db = client.Data_2018
 
-collection = db['items']
+collection = db['Data']
 
 NHL_Data = pts_math.to_dict(orient='dict')
 
