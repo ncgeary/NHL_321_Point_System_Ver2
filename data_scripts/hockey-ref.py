@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+# from pymongo import MongoClient
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from html.parser import HTMLParser
@@ -63,18 +63,18 @@ pts_math['OT_W_Pts'] = pts_math.OT_W*2
 pts_math['OT_L_Pts'] = pts_math.OT_L*1
 
 # THE NEW TOTAL POINTS!!
-pts_math['New Record']= pts_math.True_Wins.astype(str).str.cat([pts_math.OT_W.astype(str),pts_math.OT_L.astype(str),Overall_math.Loss.astype(str)],sep='-')
+pts_math['New_Record']= pts_math.True_Wins.astype(str).str.cat([pts_math.OT_W.astype(str),pts_math.OT_L.astype(str),Overall_math.Loss.astype(str)],sep='-')
 pts_math['PTS_Total']= pts_math.True_Wins_Pts+pts_math.OT_W_Pts+pts_math.OT_L_Pts
 
-pts_math['Current Points']=(pts_math.Wins*2)+(pts_math.OT_L)
+pts_math['Current_Points']=(pts_math.Wins*2)+(pts_math.OT_L)
 # clean for export
 pts_math = pts_math.drop(['OT_W', 'True_Wins_Pts', 'OT_W_Pts', 'OT_L_Pts'], axis=1)
-pts_math = pts_math.rename(columns={"OT_L":"Overtime Loss","SOWins":"Shoot Out Wins","OTWins":"Overtime Wins","True_Wins":"True Wins","PTS_Total":"Points"})
+pts_math = pts_math.rename(columns={"OT_L":"Overtime_Loss","SOWins":"Shoot_Out_Wins","OTWins":"Overtime_Wins","PTS_Total":"Points"})
 
 
-pts_math['Current Rank'] = pts_math['Current Points'].rank(ascending=False)
+pts_math['Current_Rank'] = pts_math['Current_Points'].rank(ascending=False)
 
-pts_math['321 Rank'] = pts_math['Points'].rank(ascending=False)
+pts_math['New_Rank'] = pts_math['Points'].rank(ascending=False)
 pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 pts_math = pts_math.set_index('Team')
 # print(pts_math)
@@ -87,7 +87,7 @@ pts_math = pts_math.set_index('Team')
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-# pts_math.to_json('../models/321-Point-Standings.json',orient='table')
+pts_math.to_json('../models/321-Point-Standings.json')
 
 
 # client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
