@@ -92,17 +92,7 @@ pts_math = pts_math.set_index('Team')
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-# pts_math.to_json('../models/321-Point-Standings.json')
-
-
-client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/test?retryWrites=true")
-db = client.Data_2018
-
-collection = db['Data']
-
-NHL_Data = pts_math.to_dict(orient='dict')
-
-collection.insert_one(NHL_Data)
+pts_math.to_json('standings.json')
 
 
 print("x")
