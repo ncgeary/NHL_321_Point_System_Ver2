@@ -81,7 +81,7 @@ pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 
 
 
-pts_math = pts_math.set_index('Team')
+# pts_math = pts_math.set_index('Team')
 # print(pts_math)
 
 # print(pts_math)
