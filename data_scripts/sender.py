@@ -1,9 +1,10 @@
 import json
 from pymongo import MongoClient
 
-client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/")
+client = MongoClient("mongodb+srv://admin:CatDog123@nhl-321-pts-0ef8o.mongodb.net/Data_2018")
+# client = MongoClient("localhost", 5000)
 db = client.Data_2018
-standings = db['Data']
+standings = db['data']
 
 
 with open('standings.json') as standing_data:

@@ -4,41 +4,41 @@ const Schema = mongoose.Schema;
 // Create Schema
 const ItemSchema = new Schema({
   Team:{
-    type: String
+    type: Object
   }, 
   Wins:{
-    type: Number
+    type: Object
   },
   Loss:{
-    type: Number
+    type: Object
   },
   Overtime_Loss:{
-    type: Number
+    type: Object
   },
   Shoot_Out_Wins: {
-    type: Number
+    type: Object
   },
   Overtime_Wins: {
-    type: Number
+    type: Object
   },
   True_Wins: {
-    type: Number
+    type: Object
   },
   New_Record: {
-    type: String
+    type: Object
   },
   Points: {
-    type: Number
+    type: Object
   },
   Current_Points: {
-    type: Number
+    type: Object
   },
   Current_Rank: {
-    type: Number
+    type: Object
   },
   New_Rank: {
-    type: Number
+    type: Object
   }
 });
 
-module.exports = Item = mongoose.model('item',ItemSchema)
+module.exports = Item = mongoose.model('Data',ItemSchema);
