@@ -87,7 +87,7 @@ team_props = pd.read_json('teams.json',typ='frame')
 finish_table = pts_math.join(team_props,on='Team')
 # print(finish_table)
 finish_table = finish_table.set_index('ABB')
-print(finish_table)
+# print(finish_table)
 
 
 
@@ -100,7 +100,7 @@ print(finish_table)
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-# pts_math.to_json('standings.json')
+finish_table.to_json('standings.json')
 
 
 print("x")
