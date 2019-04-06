@@ -1,3 +1,4 @@
+import json
 from pymongo import MongoClient
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
@@ -77,12 +78,19 @@ pts_math['Current_Rank'] = pts_math['Current_Points'].rank(ascending=False)
 pts_math['New_Rank'] = pts_math['Points'].rank(ascending=False)
 pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 
-
-
-
-
 # pts_math = pts_math.set_index('Team')
 # print(pts_math)
+
+team_props = pd.read_json('teams.json',typ='frame')
+# print(team_props)
+
+finish_table = pts_math.join(team_props,on='Team')
+# print(finish_table)
+finish_table = finish_table.set_index('ABB')
+print(finish_table)
+
+
+
 
 # print(pts_math)
 #export .csv file
@@ -92,7 +100,7 @@ pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 #pts_math.to_html("321-Point-Standings.html",header=True,index=False,table_id="2019_Standings")
 
 # export .json file
-pts_math.to_json('standings.json')
+# pts_math.to_json('standings.json')
 
 
 print("x")
