@@ -38,7 +38,13 @@ const ItemSchema = new Schema({
   },
   New_Rank: {
     type: Object
+  },
+  Conference: {
+    type: Object
+  },
+  Division: {
+    type: Object
   }
 });
 
-module.exports = Item = mongoose.model('Data',ItemSchema);
+module.exports = Item = mongoose.model('data',ItemSchema);
