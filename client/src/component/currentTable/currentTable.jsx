@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getItems} from '../../actions/itemActions';
 import PropTypes from 'prop-types'
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Container } from 'reactstrap';
+// import { Container } from 'reactstrap';
 
 
 // function enumFormatter(cell, row, enumObject) {
@@ -22,22 +22,27 @@ class CurrentTable extends Component {
     console.log({items});
 
     const columns = [{
-      dataField: 'Team',
-      text: 'Team'
+      dataField: 'item.ABB',
+      text: 'Team',
+      sort: true
     }, {
-      dataField: 'Current_Rank',
-      text: 'Current Rank'
+        dataField: 'item.Team',
+        text: 'Team',
+        sort: true
+      }, {
+        dataField: 'items.items[""0""].Current_Rank',
+      text: 'Current Rank',
+      sort: true
     }, {
-        dataField: 'New_Rank',
-        text: 'Current Rank'
+        dataField: 'items.items[""0""].New_Rank',
+        text: '321 Rank',
+        sort:true
     }];
     
 
     return (
-      <Container>
-        <BootstrapTable keyField='Team' data={items} columns={columns} />
+      <BootstrapTable keyField="Team" data={items} columns={columns} />
 
-      </Container>
       
     )
   }
