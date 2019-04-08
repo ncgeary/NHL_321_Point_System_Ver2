@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-// const mongoURI = require('./config/keys')
 
 const app = express();
 
@@ -24,7 +23,6 @@ mongoose
 
 //Use Routes
 app.use('/api/items', require('./routes/api/items'));
-// app.use(mongoURI+'/Data_2018/datas', require('./routes/api/items'));
 
 // Serve static assests if in production
 if(process.env.NODE_ENV==='production'){

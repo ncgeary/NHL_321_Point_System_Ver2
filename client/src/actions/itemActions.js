@@ -5,11 +5,10 @@ export const getItems = () => dispatch => {
     dispatch(setItemsLoading());
     axios
         .get('/api/items')
-        // .get('localhost:5000/api/items')
         .then(res=> 
             dispatch({
                 type: GET_ITEMS,
-                payload: res.data
+                payload: res.data,
             }));
 };
 

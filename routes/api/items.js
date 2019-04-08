@@ -10,7 +10,6 @@ const Item = require('../../models/Item');
 // @access  Public
 router.get('/', cors(), (req, res) => {
   Item.find()
-    // .then(data => res.json(data));
     .then(items => res.json(items));
 });
 
