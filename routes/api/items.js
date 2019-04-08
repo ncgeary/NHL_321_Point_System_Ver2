@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors')
 
 // Item Model
 const Item = require('../../models/Item');
@@ -7,7 +8,7 @@ const Item = require('../../models/Item');
 // @route   GET api/items
 // @desc    Get All Items
 // @access  Public
-router.get('/', (req, res) => {
+router.get('/', cors(), (req, res) => {
   Item.find()
     // .then(data => res.json(data));
     .then(items => res.json(items));
@@ -16,7 +17,7 @@ router.get('/', (req, res) => {
 // @route   POST api/items
 // @desc    Create Items
 // @access  Public
-router.post('/', (req, res) => {
+router.post('/', cors(), (req, res) => {
   const newItem = new Item({
     Team: req.body.Team,
     Wins: req.body.Wins,

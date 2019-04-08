@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+// const mongoURI = require('./config/keys')
 
 const app = express();
 
@@ -14,13 +14,17 @@ const db = require('./config/keys').mongoURI;
 
 //Connect to Mongo
 mongoose
-  .connect(db, {useNewUrlParser: true}) // turned off new mongo url parser 
+  .connect(db, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  }) // turned off new mongo url parser 
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+
 //Use Routes
 app.use('/api/items', require('./routes/api/items'));
-
+// app.use(mongoURI+'/Data_2018/datas', require('./routes/api/items'));
 
 // Serve static assests if in production
 if(process.env.NODE_ENV==='production'){
