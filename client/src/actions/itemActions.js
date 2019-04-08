@@ -8,7 +8,7 @@ export const getItems = () => dispatch => {
         .then(res=> 
             dispatch({
                 type: GET_ITEMS,
-                payload: res.data
+                payload: res.items
             }));
 };
 
