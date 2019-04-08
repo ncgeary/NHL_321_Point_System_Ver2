@@ -44,10 +44,10 @@ class AppNavbar extends Component {
                                     <NavLink href="https://github.com/ncgeary/nhl_mern" rel="noopener noreferrer" target="_blank" >Github Repo</NavLink>
                                 </NavItem>
                                 < NavItem >
-                                    <NavLink href="/" rel="noopener noreferrer" target="_blank" >Year by Year</NavLink>
+                                    <NavLink href="/">Year by Year</NavLink>
                                 </NavItem>
                                 < NavItem >
-                                    <NavLink href="/" rel="noopener noreferrer" target="_blank" >Conference</NavLink>
+                                    <NavLink href="/" >Conference</NavLink>
                                 </NavItem>
                             </Nav>
                         </Collapse>
