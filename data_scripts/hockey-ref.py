@@ -40,12 +40,12 @@ teamtable = pd.DataFrame(all_teams)
 # print(teamtable)
 #clean data & rename headers
 teamtable = teamtable.drop([4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],axis=1)
-teamtable = teamtable.rename(columns={0:"Team",1:"Overall",2:"Shootout",3:"Overtime"})
+teamtable = teamtable.rename(columns={0:"team",1:"Overall",2:"Shootout",3:"Overtime"})
 
 # Striping out the strings of the records
 
 teamname = teamtable.drop(["Overall","Shootout","Overtime"],axis=1)
-Overall_math = teamtable.Overall.str.split("-",expand=True).rename(columns={0:"Wins",1:"Loss",2:"OT_L"}).astype(int)
+Overall_math = teamtable.Overall.str.split("-",expand=True).rename(columns={0:"wins",1:"loss",2:"OT_L"}).astype(int)
 Shootout_math = teamtable.Shootout.str.split("-",expand=True).drop([1],axis=1).rename(columns={0:"SOWins"}).astype(int)
 Overtime_math = teamtable.Overtime.str.split("-",expand=True).drop([1],axis=1).rename(columns={0:"OTWins"}).astype(int)
 
@@ -58,25 +58,25 @@ pts_math = pts_math.join(Overtime_math)
 
 # Math to get all the pts totals...(Keeping to show the work)
 pts_math['OT_W'] = pts_math.SOWins + pts_math.OTWins
-pts_math['True_Wins'] = pts_math.Wins - pts_math.OT_W
-pts_math['True_Wins_Pts'] = pts_math.True_Wins*3
+pts_math['true_Wins'] = pts_math.wins - pts_math.OT_W
+pts_math['True_Wins_Pts'] = pts_math.true_Wins*3
 pts_math['OT_W_Pts'] = pts_math.OT_W*2
 pts_math['OT_L_Pts'] = pts_math.OT_L*1
 
 # THE NEW TOTAL POINTS!!
-pts_math['New_Record']= pts_math.True_Wins.astype(str).str.cat([pts_math.OT_W.astype(str),pts_math.OT_L.astype(str),Overall_math.Loss.astype(str)],sep='-')
+pts_math['new_Record']= pts_math.true_Wins.astype(str).str.cat([pts_math.OT_W.astype(str),pts_math.OT_L.astype(str),Overall_math.loss.astype(str)],sep='-')
 pts_math['PTS_Total']= pts_math.True_Wins_Pts+pts_math.OT_W_Pts+pts_math.OT_L_Pts
 
-pts_math['Current_Points']=(pts_math.Wins*2)+(pts_math.OT_L)
+pts_math['current_Points']=(pts_math.wins*2)+(pts_math.OT_L)
 # clean for export
 pts_math = pts_math.drop(['OT_W', 'True_Wins_Pts', 'OT_W_Pts', 'OT_L_Pts'], axis=1)
-pts_math = pts_math.rename(columns={"OT_L":"Overtime_Loss","SOWins":"Shoot_Out_Wins","OTWins":"Overtime_Wins","PTS_Total":"Points"})
+pts_math = pts_math.rename(columns={"OT_L":"overtime_Loss","SOWins":"shoot_Out_Wins","OTWins":"overtime_Wins","PTS_Total":"points"})
 
 
-pts_math['Current_Rank'] = pts_math['Current_Points'].rank(ascending=False)
+pts_math['current_Rank'] = pts_math['current_Points'].rank(ascending=False)
 
-pts_math['New_Rank'] = pts_math['Points'].rank(ascending=False)
-pts_math = pts_math.sort_values(by=["Points"],ascending=False)
+pts_math['new_Rank'] = pts_math['points'].rank(ascending=False)
+pts_math = pts_math.sort_values(by=["points"],ascending=False)
 
 # pts_math = pts_math.set_index('Team')
 # print(pts_math)
@@ -84,9 +84,9 @@ pts_math = pts_math.sort_values(by=["Points"],ascending=False)
 team_props = pd.read_json('teams.json',typ='frame')
 # print(team_props)
 
-finish_table = pts_math.join(team_props,on='Team')
+finish_table = pts_math.join(team_props,on='team')
 # print(finish_table)
-finish_table = finish_table.set_index('ABB')
+finish_table = finish_table.set_index('abb')
 # print(finish_table)
 
 

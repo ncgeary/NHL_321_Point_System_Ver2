@@ -18,30 +18,34 @@ class CurrentTable extends Component {
 
 
   render() {
-    const {items}= this.props.item;
-    console.log({items});
+    const { items } = this.props.item;
+    console.log({ items });
+
+    var dig = this.props.item.items[0];
+    console.log(dig);
 
     const columns = [{
-      dataField: 'item.ABB',
+      dataField: 'items[0].team',
       text: 'Team',
       sort: true
     }, {
-        dataField: 'item.Team',
-        text: 'Team',
-        sort: true
-      }, {
-        dataField: 'items.items[""0""].Current_Rank',
+      dataField: 'item.current_Rank',
       text: 'Current Rank',
       sort: true
     }, {
-        dataField: 'items.items[""0""].New_Rank',
-        text: '321 Rank',
-        sort:true
+      dataField: 'item.new_Rank',
+      text: '321 Rank',
+      sort: true
     }];
     
 
     return (
-      <BootstrapTable keyField="Team" data={items} columns={columns} />
+      <BootstrapTable 
+        keyField="team" 
+        data={items} 
+        columns={columns}
+        striped
+        hover />
 
       
     )

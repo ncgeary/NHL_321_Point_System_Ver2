@@ -1,5 +1,5 @@
 {
-    "ABB": {
+    "abb": {
         "Tampa Bay Lightning": "TB",
         "Calgary Flames": "CAL",
         "Boston Bruins": "BOS",
@@ -32,7 +32,7 @@
         "Detroit Red Wings": "DET",
         "Ottawa Senators": "OTT"
     },
-    "Conference": {
+    "conference": {
         "Tampa Bay Lightning": "Eastern",
         "Calgary Flames": "Western",
         "Boston Bruins": "Eastern",
@@ -65,7 +65,7 @@
         "Detroit Red Wings": "Eastern",
         "Ottawa Senators": "Eastern"
     },
-    "Division": {
+    "division": {
         "Tampa Bay Lightning": "Atlantic",
         "Calgary Flames": "Pacific",
         "Boston Bruins": "Atlantic",

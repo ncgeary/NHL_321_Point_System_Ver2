@@ -18,20 +18,20 @@ router.get('/', cors(), (req, res) => {
 // @access  Public
 router.post('/', cors(), (req, res) => {
   const newItem = new Item({
-    Team: req.body.Team,
-    Wins: req.body.Wins,
-    Loss: req.body.Loss,
-    Overtime_Loss: req.body.Overtime_Loss,
-    Shoot_Out_Wins: req.body.Shoot_Out_Wins,
-    Overtime_Wins: req.body.Overtime_Wins,
-    True_Wins: req.body.True_Wins,
-    New_Record: req.body.New_Record,
-    Points: req.body.Points,
-    Current_Points: req.body.Current_Points,
-    Current_Rank: req.body.Current_Rank,
-    New_Rank: req.body.New_Rank,
-    Conference: req.body.Conference,
-    Division: req.body.Division,
+    team: req.body.team,
+    wins: req.body.wins,
+    loss: req.body.loss,
+    overtime_Loss: req.body.overtime_Loss,
+    shoot_Out_Wins: req.body.shoot_Out_Wins,
+    overtime_Wins: req.body.overtime_Wins,
+    true_Wins: req.body.true_Wins,
+    new_Record: req.body.new_Record,
+    points: req.body.points,
+    current_Points: req.body.current_Points,
+    current_Rank: req.body.current_Rank,
+    new_Rank: req.body.new_Rank,
+    conference: req.body.conference,
+    division: req.body.division,
   });
   newItem.save().then(item=> res.json(item));
 });

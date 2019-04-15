@@ -3,48 +3,50 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const ItemSchema = new Schema({
-  Team:{
+  team:{
     type: Object
   }, 
-  Wins:{
+  wins:{
     type: Object
   },
-  Loss:{
+  loss:{
     type: Object
   },
-  Overtime_Loss:{
+  overtime_Loss:{
     type: Object
   },
-  Shoot_Out_Wins: {
+  shoot_Out_Wins: {
     type: Object
   },
-  Overtime_Wins: {
+  overtime_Wins: {
     type: Object
   },
-  True_Wins: {
+  true_Wins: {
     type: Object
   },
-  New_Record: {
+  new_Record: {
     type: Object
   },
-  Points: {
+  points: {
     type: Object
   },
-  Current_Points: {
+  current_Points: {
     type: Object
   },
-  Current_Rank: {
+  current_Rank: {
     type: Object
   },
-  New_Rank: {
+  new_Rank: {
     type: Object
   },
-  Conference: {
+  conference: {
     type: Object
   },
-  Division: {
+  division: {
     type: Object
   }
+}, {
+  versionKey: '_2018data'
 });
 
 module.exports = Item = mongoose.model('data',ItemSchema);
