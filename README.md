@@ -14,4 +14,4 @@ You can read more about the NHL 3-2-1 Point System from PuckProse and ESPN
 
 This site was created using the MERN stack (MongoDB, Express.js, React, Node), BeautifulSoup, Numpy, and Pandas.
 
-Feel free to check out my other projects on my portfolio (https://ncgeary.github.io/Portfolio/)
+Feel free to check out my other projects on my portfolio (https://ncgeary.github.io/Geary_Portfolio/)
