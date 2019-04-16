@@ -21,11 +21,11 @@ class CurrentTable extends Component {
     const { items } = this.props.item;
     console.log({ items });
 
-    var dig = this.props.item.items[0];
+    const dig = this.props.item.items[0];
     console.log(dig);
 
     const columns = [{
-      dataField: 'items[0].team',
+      dataField: 'dig.team',
       text: 'Team',
       sort: true
     }, {
@@ -46,8 +46,7 @@ class CurrentTable extends Component {
         columns={columns}
         striped
         hover />
-
-      
+     
     )
   }
 }
