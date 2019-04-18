@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
-import 'react-table/react-table.css'
 
 import {Provider} from 'react-redux';
 import store from './store';

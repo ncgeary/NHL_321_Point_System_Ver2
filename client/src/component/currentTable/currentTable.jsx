@@ -7,10 +7,6 @@ import BootstrapTable from 'react-bootstrap-table-next';
 
 
 
-// function enumFormatter(cell, row, enumObject) {
-//   return enumObject[cell];
-// 
-
 class CurrentTable extends Component {
 
   componentDidMount() {
@@ -23,8 +19,8 @@ class CurrentTable extends Component {
     const { items } = this.props.item;
     // console.log({ items });
 
-    // const dig = this.props.item.items[0];
-    // console.log(dig);
+    const dig = this.props.item.items[0];
+    console.log(dig);
 
     // react - bootstrap - table - next
     const columns = [{
@@ -32,7 +28,6 @@ class CurrentTable extends Component {
       text: 'Team',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        
         Object.values(row.team)[rowIndex]                      
       )      
     }, {
