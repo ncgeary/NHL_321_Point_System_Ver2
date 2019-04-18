@@ -18,6 +18,7 @@ class CurrentTable extends Component {
 
 
   render() {
+    
     const { items } = this.props.item;
     console.log({ items });
 
@@ -25,17 +26,31 @@ class CurrentTable extends Component {
     console.log(dig);
 
     const columns = [{
-      dataField: 'dig.team',
+      dataField: 'team',
       text: 'Team',
-      sort: true
+      sort: true,
+      formatter: (cellContent, row, rowIndex) => (
+        <p>{Object.keys(row.team)[rowIndex]}</p>
+              
+      )
+      
     }, {
-      dataField: 'item.current_Rank',
+      dataField: 'current_Rank',
       text: 'Current Rank',
-      sort: true
+      sort: true,
+      formatter: (cellContent, row, rowIndex) => (
+        <p>{Object.keys(row.current_Rank)[rowIndex]}</p>
+
+      )
+      
     }, {
-      dataField: 'item.new_Rank',
+      dataField: 'new_Rank',
       text: '321 Rank',
-      sort: true
+      sort: true,
+      formatter: (cellContent, row, rowIndex) => (
+        <p>{Object.keys(row.new_Rank)[rowIndex]}</p>
+
+      )
     }];
     
 
@@ -46,6 +61,7 @@ class CurrentTable extends Component {
         columns={columns}
         striped
         hover />
+      // <div>{dig}</div>
      
     )
   }
@@ -53,8 +69,8 @@ class CurrentTable extends Component {
 
 CurrentTable.propTypes = {
   getItems: PropTypes.func.isRequired,
-  item: PropTypes.object.isRequired
-}
+  item: PropTypes.object.isRequired,
+  }
 
 const mapStateToProps = (state) => ({
   item: state.item
