@@ -6,6 +6,7 @@ import BootstrapTable from 'react-bootstrap-table-next';
 // import { Container } from 'reactstrap';
 
 
+
 // function enumFormatter(cell, row, enumObject) {
 //   return enumObject[cell];
 // 
@@ -20,49 +21,49 @@ class CurrentTable extends Component {
   render() {
     
     const { items } = this.props.item;
-    console.log({ items });
+    // console.log({ items });
 
-    const dig = this.props.item.items[0];
-    console.log(dig);
+    // const dig = this.props.item.items[0];
+    // console.log(dig);
 
+    // react - bootstrap - table - next
     const columns = [{
       dataField: 'team',
       text: 'Team',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        <p>{Object.keys(row.team)[rowIndex]}</p>
-              
-      )
-      
+        
+        Object.values(row.team)[rowIndex]                      
+      )      
     }, {
       dataField: 'current_Rank',
       text: 'Current Rank',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        <p>{Object.keys(row.current_Rank)[rowIndex]}</p>
-
-      )
-      
+        Object.values(row.current_Rank)[rowIndex]
+      )      
     }, {
       dataField: 'new_Rank',
       text: '321 Rank',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        <p>{Object.keys(row.new_Rank)[rowIndex]}</p>
-
+        Object.values(row.new_Rank)[rowIndex]
       )
     }];
+
+    
+
     
 
     return (
       <BootstrapTable 
-        keyField="team" 
-        data={items} 
+        keyField="team"
+        data={items}  
         columns={columns}
         striped
-        hover />
-      // <div>{dig}</div>
-     
+        hover />   
+        
+        
     )
   }
 }
