@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getItems} from '../../actions/itemActions';
 import PropTypes from 'prop-types'
 import BootstrapTable from 'react-bootstrap-table-next';
-// import { Container } from 'reactstrap';
+import { Container } from 'reactstrap';
 
 
 
@@ -44,21 +44,55 @@ class CurrentTable extends Component {
       formatter: (cellContent, row, rowIndex) => (
         Object.values(row.new_Rank)[rowIndex]
       )
-    }];
-
-    
-
-    
+      }, {
+        dataField: 'new_Record',
+        text: 'Record',
+        sort: true,
+        formatter: (cellContent, row, rowIndex) => (
+          Object.values(row.new_Record)[rowIndex]
+        )
+      }, {
+        dataField: 'current_Points',
+        text: 'Current Point Total',
+        sort: true,
+        formatter: (cellContent, row, rowIndex) => (
+          Object.values(row.current_Points)[rowIndex]
+        )
+      }, {
+        dataField: 'points',
+        text: 'New Point Total',
+        sort: true,
+        formatter: (cellContent, row, rowIndex) => (
+          Object.values(row.points)[rowIndex]
+        )
+      }, {
+        dataField: 'conference',
+        text: 'Conference',
+        sort: true,
+        formatter: (cellContent, row, rowIndex) => (
+          Object.values(row.conference)[rowIndex]
+        )
+      }, {
+        dataField: 'division',
+        text: 'Division',
+        sort: true,
+        formatter: (cellContent, row, rowIndex) => (
+          Object.values(row.division)[rowIndex]
+        )
+      }];
 
     return (
-      <BootstrapTable 
-        keyField="team"
-        data={items}  
-        columns={columns}
-        striped
-        hover />   
-        
-        
+      <Container>
+        <BootstrapTable
+          keyField="team"
+          data={items}
+          columns={columns}
+          striped
+          hover />   
+
+      </Container>
+      
+               
     )
   }
 }
