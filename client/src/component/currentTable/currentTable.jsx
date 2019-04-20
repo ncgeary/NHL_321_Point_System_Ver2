@@ -22,8 +22,18 @@ class CurrentTable extends Component {
     const dig = this.props.item.items[0];
     console.log(dig);
 
+    const keys = Object.keys(this.props.item.items[0]);
+    console.log(keys)
+
+
+    
     // react - bootstrap - table - next
-    const columns = [{
+    const columns = [
+      {
+        dataField: "key",
+        text: "Key",
+        formatter: (cellContent, row) => <div>{row}</div>
+      },{
       dataField: 'team',
       text: 'Team',
       sort: true,
