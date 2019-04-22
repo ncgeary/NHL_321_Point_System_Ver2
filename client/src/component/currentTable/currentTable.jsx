@@ -10,94 +10,102 @@ import { Container } from 'reactstrap';
 class CurrentTable extends Component {
 
   componentDidMount() {
-    this.props.getItems();    
+    this.props.getItems();  
+    
   }
 
 
   render() {
     
-    const { items } = this.props.item;
-    // console.log({ items });
+    // let {items} = this.props.item || {};
+    // console.log({items});
 
-    const dig = this.props.item.items[0];
+    
+    const dig = this.props.item.items[0] || {};
     console.log(dig);
 
-    const keys = Object.keys(this.props.item.items[0]);
-    console.log(keys)
-
-
+    let teams = dig.team || {};
+    let current_Ranks = dig.current_Rank || {};
+    let new_Ranks = dig.new_Rank || {};
+    let new_Records = dig.new_Record || {};
+    let current_Pointss = dig.current_Points || {};
+    let pointss = dig.points || {};
+    let conferences = dig.conference || {};
+    let divisions = dig.division || {};
+    // console.log(Object.values(teams));
     
     // react - bootstrap - table - next
     const columns = [
       {
-        dataField: "key",
-        text: "Key",
-        formatter: (cellContent, row) => <div>{row}</div>
-      },{
-      dataField: 'team',
+      dataField: "teams",
       text: 'Team',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        Object.values(row.team)[rowIndex]                      
+        Object.values(teams)[rowIndex]
+        
       )      
     }, {
       dataField: 'current_Rank',
       text: 'Current Rank',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        Object.values(row.current_Rank)[rowIndex]
+        Object.values(current_Ranks)[rowIndex]
       )      
     }, {
       dataField: 'new_Rank',
       text: '321 Rank',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
-        Object.values(row.new_Rank)[rowIndex]
+        Object.values(new_Ranks)[rowIndex]
       )
       }, {
         dataField: 'new_Record',
         text: 'Record',
         sort: true,
         formatter: (cellContent, row, rowIndex) => (
-          Object.values(row.new_Record)[rowIndex]
+          Object.values(new_Records)[rowIndex]
         )
       }, {
         dataField: 'current_Points',
         text: 'Current Point Total',
         sort: true,
         formatter: (cellContent, row, rowIndex) => (
-          Object.values(row.current_Points)[rowIndex]
+          Object.values(current_Pointss)[rowIndex]
         )
       }, {
         dataField: 'points',
         text: 'New Point Total',
         sort: true,
         formatter: (cellContent, row, rowIndex) => (
-          Object.values(row.points)[rowIndex]
+          Object.values(pointss)[rowIndex]
         )
       }, {
         dataField: 'conference',
         text: 'Conference',
         sort: true,
         formatter: (cellContent, row, rowIndex) => (
-          Object.values(row.conference)[rowIndex]
+          Object.values(conferences)[rowIndex]
         )
       }, {
         dataField: 'division',
         text: 'Division',
         sort: true,
         formatter: (cellContent, row, rowIndex) => (
-          Object.values(row.division)[rowIndex]
+          Object.values(divisions)[rowIndex]
         )
       }];
+    
+
+
 
     return (
+      
       <Container>
         <BootstrapTable
           keyField="team"
-          data={items}
+          data={[dig]}
           columns={columns}
-          striped
+          striped  
           hover />   
 
       </Container>
