@@ -96,8 +96,6 @@ class CurrentTable extends Component {
       }];
     
 
-
-
     return (
       
       <Container>
