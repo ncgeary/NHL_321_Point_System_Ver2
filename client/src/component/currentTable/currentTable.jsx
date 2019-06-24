@@ -21,8 +21,7 @@ class CurrentTable extends Component {
 
     
     const dig = this.props.item.items[0] || {};
-    const keepdig = Object.values(dig);
-    // console.log(dig);
+    
     
     let teams = dig.team || {};
     let current_Ranks = dig.current_Rank || {};
@@ -32,6 +31,9 @@ class CurrentTable extends Component {
     let pointss = dig.points || {};
     let conferences = dig.conference || {};
     let divisions = dig.division || {};
+
+    const keepdig = Object.values(teams);
+    // console.log(keepdig);
     // console.log(Object.values(teams));
 
     // let data = Object.values(Object.keys(teams))||{};
