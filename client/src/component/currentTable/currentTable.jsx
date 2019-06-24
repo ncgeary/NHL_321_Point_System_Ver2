@@ -11,7 +11,6 @@ class CurrentTable extends Component {
 
   componentDidMount() {
     this.props.getItems();  
-    
   }
 
 
@@ -22,8 +21,9 @@ class CurrentTable extends Component {
 
     
     const dig = this.props.item.items[0] || {};
-    console.log(dig);
-
+    const keepdig = Object.values(dig);
+    // console.log(dig);
+    
     let teams = dig.team || {};
     let current_Ranks = dig.current_Rank || {};
     let new_Ranks = dig.new_Rank || {};
@@ -33,11 +33,16 @@ class CurrentTable extends Component {
     let conferences = dig.conference || {};
     let divisions = dig.division || {};
     // console.log(Object.values(teams));
+
+    // let data = Object.values(Object.keys(teams))||{};
+    // console.log(data); 
+    
+    
     
     // react - bootstrap - table - next
     const columns = [
       {
-      dataField: "teams",
+      dataField: 'teams',
       text: 'Team',
       sort: true,
       formatter: (cellContent, row, rowIndex) => (
@@ -100,8 +105,8 @@ class CurrentTable extends Component {
       
       <Container>
         <BootstrapTable
-          keyField="team"
-          data={[dig]}
+          keyField="teams"
+          data={keepdig}
           columns={columns}
           striped  
           hover />   

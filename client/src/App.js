@@ -9,7 +9,6 @@ import store from './store';
 import AppNavbar from './component/navbar/navbar';
 import MainInfo from './component/main_info/info';
 import CurrentTable from './component/currentTable/currentTable';
-// import Table from './component/currentTable/table';
 import Footer from './component/footer/footer';
 
 class App extends Component {
@@ -20,7 +19,6 @@ class App extends Component {
           <AppNavbar />
           <MainInfo/>
           <CurrentTable/>
-          {/* <Table/> */}
           <Footer/>
 
         </div>
