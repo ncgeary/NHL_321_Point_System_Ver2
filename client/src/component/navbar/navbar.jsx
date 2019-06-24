@@ -37,11 +37,11 @@ class AppNavbar extends Component {
                             this.state.isOpen
                         } navbar >
                             <Nav className="ml-auto" navbar >
-                                < NavItem >
+                                {/* < NavItem >
                                     <NavLink href="https://ncgeary.github.io/NHL_321_PointSystem/" rel="noopener noreferrer" target="_blank">Previous Site</NavLink>
-                                </NavItem>
+                                </NavItem> */}
                                 < NavItem >
-                                    <NavLink href="https://github.com/ncgeary/nhl_mern" rel="noopener noreferrer" target="_blank" >Github Repo</NavLink>
+                                    <NavLink href="https://github.com/ncgeary/NHL_321_Point_System_Ver2" rel="noopener noreferrer" target="_blank" >Github Repo</NavLink>
                                 </NavItem>
                                 < NavItem >
                                     <NavLink href="/">Year by Year</NavLink>
