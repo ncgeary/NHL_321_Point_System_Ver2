@@ -21,7 +21,7 @@
     "cors-anywhere": "^0.4.1",
     "express": "^4.16.4",
     "jquery": "^3.4.1",
-    "mongoose": "^5.4.15",
+    "mongoose": "^5.7.5",
     "reactstrap": "^7.1.0"
   },
   "devDependencies": {
