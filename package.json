@@ -20,7 +20,7 @@
     "cors": "^2.8.5",
     "cors-anywhere": "^0.4.1",
     "express": "^4.16.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mongoose": "^5.4.15",
     "reactstrap": "^7.1.0"
   },
